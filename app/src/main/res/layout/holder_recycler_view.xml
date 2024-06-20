@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/coin_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/coin_symbol"
+        app:layout_constraintEnd_toStartOf="@id/physical_currency"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="coin_name">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/coin_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/coin_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/change_image"
+        tools:text="coin_symbol">
+
+    </TextView>
+
+    <!-- this image is the logo of the currency in which the crypto translates
+         its value. image source should be set in runtime and change dynamically-->
+    <ImageView
+        android:id="@+id/physical_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/coin_name"
+        app:layout_constraintEnd_toStartOf="@id/current_price"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/price_change"
+        tools:text="currency_image">
+
+    </ImageView>
+
+    <!-- this image is either a green upwards or a red downwards vector
+        depending on the crypto's price change
+        image source should be set in runtime and change dynamically-->
+    <ImageView
+        android:id="@+id/change_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/coin_symbol"
+        app:layout_constraintEnd_toStartOf="@id/price_change"
+        app:layout_constraintTop_toBottomOf="@id/physical_currency"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="vector_change">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/current_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/physical_currency"
+        app:layout_constraintBottom_toTopOf="@id/price_change"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="current_price">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/price_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/change_image"
+        app:layout_constraintTop_toBottomOf="@id/current_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="price_change">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
