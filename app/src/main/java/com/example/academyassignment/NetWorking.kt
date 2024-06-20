@@ -8,7 +8,7 @@ import org.json.JSONArray
 
 class NetWorking {
 
-    public fun queryForCryptos() {
+    public fun queryForAllCryptos() {
         var baseUrl: String = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"
 
         val client = OkHttpClient()
@@ -21,6 +21,22 @@ class NetWorking {
 
         val response = client.newCall(request).execute()
     }
+
+    public fun queryForSeveralCryptos(page: Int, numberPerPage: Int) {
+        var baseUrl: String = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"
+
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd")
+            .get()
+            .addHeader("accept", "application/json")
+            .addHeader("x-cg-demo-api-key", "CG-rYPvzHBEzVoyiZ7eR7sVmShp")
+            .build()
+
+        val response = client.newCall(request).execute()
+    }
+
+
 
     public fun parseAndAppend(response: String) {
         val jsonArray = JSONArray(response)

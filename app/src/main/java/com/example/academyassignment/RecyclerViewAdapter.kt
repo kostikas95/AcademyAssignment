@@ -20,7 +20,6 @@ class RecyclerViewAdapter(arrayData: List<String>) : RecyclerView.Adapter<Recycl
         return CryptosRepository.getCryptos().count()
     }
 
-
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         holder.bind(arrayData[position])
     }
