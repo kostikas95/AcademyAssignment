@@ -20,6 +20,7 @@
         android:id="@+id/button_pop"
         android:layout_width="0dp"
         android:layout_height="100dp"
+        android:text="Popular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_search">
@@ -30,6 +31,7 @@
         android:id="@+id/button_search"
         android:layout_width="0dp"
         android:layout_height="100dp"
+        android:text="Search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_pop"
         app:layout_constraintEnd_toStartOf="@id/button_favs">
@@ -40,6 +42,7 @@
         android:id="@+id/button_favs"
         android:layout_width="0dp"
         android:layout_height="100dp"
+        android:text="Favourites"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_search"
         app:layout_constraintEnd_toEndOf="parent">
