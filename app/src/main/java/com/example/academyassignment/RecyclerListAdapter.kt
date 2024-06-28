@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.academyassignment.databinding.HolderRecyclerViewBinding
 import com.example.academyassignment.model.CryptoBasicData
-import com.example.academyassignment.popular.CryptoDiffCallback
 
 class RecyclerListAdapter(
     private val onItemClick: (String) -> Unit

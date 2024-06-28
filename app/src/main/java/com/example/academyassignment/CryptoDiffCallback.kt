@@ -1,4 +1,4 @@
-package com.example.academyassignment.popular
+package com.example.academyassignment
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.academyassignment.model.CryptoBasicData
