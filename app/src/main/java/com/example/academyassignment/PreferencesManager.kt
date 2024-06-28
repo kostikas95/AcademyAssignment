@@ -16,7 +16,6 @@ class PreferencesManager() {
 
         fun initialize(context: Context) {
             sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-            addFavoriteCrypto("bitcoin")
         }
 
         fun addFavoriteCrypto(id: String) {

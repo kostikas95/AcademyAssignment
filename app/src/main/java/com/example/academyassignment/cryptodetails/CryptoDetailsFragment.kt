@@ -1,13 +1,19 @@
 package com.example.academyassignment.cryptodetails
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageButton
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.academyassignment.PreferencesManager
 import com.example.academyassignment.R
 import com.example.academyassignment.databinding.FragmentCryptoDetailsBinding
 import com.example.academyassignment.databinding.FragmentPopularBinding
@@ -25,7 +31,6 @@ class CryptoDetailsFragment : Fragment() {
         arguments?.let {
             cryptoId = it.getString(CRYPTO_ID_ARG) ?: ""
         }
-        Log.d("CRYPTODETAILSFRAGMENT", "crypto id: ${cryptoId}")
     }
 
     override fun onCreateView(
@@ -41,6 +46,40 @@ class CryptoDetailsFragment : Fragment() {
 
         viewModel = ViewModelProvider(requireActivity()).get(CryptoDetailsViewModel::class.java)
         viewModel.cryptoId = cryptoId
+
+        val favToggle: ImageButton = binding.favToggle
+        if (PreferencesManager.isFavoriteCrypto(cryptoId)) {
+            val star = ContextCompat.getDrawable(requireContext(), R.drawable.star_filled)
+            if (star != null) {
+                val wrappedDrawable: Drawable = DrawableCompat.wrap(star)
+                favToggle.setImageDrawable(wrappedDrawable)
+            }
+        } else {
+            val star = ContextCompat.getDrawable(requireContext(), R.drawable.star)
+            if (star != null) {
+                val wrappedDrawable: Drawable = DrawableCompat.wrap(star)
+                favToggle.setImageDrawable(wrappedDrawable)
+            }
+        }
+
+
+        favToggle.setOnClickListener {
+            if (PreferencesManager.isFavoriteCrypto(cryptoId)) {
+                PreferencesManager.removeFavoriteCrypto(cryptoId)
+                val star = ContextCompat.getDrawable(requireContext(), R.drawable.star)
+                if (star != null) {
+                    val wrappedDrawable: Drawable = DrawableCompat.wrap(star)
+                    favToggle.setImageDrawable(wrappedDrawable)
+                }
+            } else {
+                PreferencesManager.addFavoriteCrypto(cryptoId)
+                val star = ContextCompat.getDrawable(requireContext(), R.drawable.star_filled)
+                if (star != null) {
+                    val wrappedDrawable: Drawable = DrawableCompat.wrap(star)
+                    favToggle.setImageDrawable(wrappedDrawable)
+                }
+            }
+        }
 
         viewModel.crypto.observe(viewLifecycleOwner, Observer { currentCrypto ->
             Log.d("CRYPTODETAILSFRAGMENT", "observer triggered")
