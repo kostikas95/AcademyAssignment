@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         PreferencesManager.initialize(this)
         val fragmentContainer: FragmentContainerView = binding.fragmentContainer
 
-
         // val pingResponse: String = Networking.ping()
         // Log.d("PING", pingResponse)
 

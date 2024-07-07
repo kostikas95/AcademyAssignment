@@ -72,7 +72,7 @@ class Networking {
             return Gson().fromJson(responseString, Array<CryptoBasicData>::class.java).toList()
         }
 
-        // used to get a specific cryptos, via its id
+        // used to get a specific crypto, via its id
         public suspend fun queryCoinListWithMarketData(vsCurrency: VsCurrency, id: String): CryptoDetailedData {
             var url: String = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=$vsCurrency"
             url = url + "&ids=$id"
