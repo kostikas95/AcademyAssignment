@@ -1,9 +1,11 @@
 package com.example.academyassignment
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.util.Log
 import com.example.academyassignment.model.CryptoBasicData
 import com.example.academyassignment.model.CryptoDetailedData
-import com.example.academyassignment.model.CryptoId
 import com.example.academyassignment.model.VsCurrency
 import com.google.gson.Gson
 import com.google.gson.JsonArray
@@ -19,7 +21,7 @@ class Networking {
     companion object {
 
         // used to check connection to the api
-        fun ping(): String {
+        fun ping(): String{
             val client = OkHttpClient()
             val url: String = "https://api.coingecko.com/api/v3/ping"
             val request = Request.Builder()
@@ -48,7 +50,6 @@ class Networking {
                 .url(url)
                 .get()
                 .addHeader("accept", "application/json")
-                // .addHeader("x-cg-demo-api-key", "CG-rYPvzHBEzVoyiZ7eR7sVmShp")
                 .build()
             val response = client.newCall(request).execute()
             val responseString: String = response.body?.string() ?: throw IOException("Empty response body")
@@ -65,7 +66,6 @@ class Networking {
                 .url(url)
                 .get()
                 .addHeader("accept", "application/json")
-                // .addHeader("x-cg-demo-api-key", "CG-rYPvzHBEzVoyiZ7eR7sVmShp")
                 .build()
             val response = client.newCall(request).execute()
             val responseString: String = response.body?.string() ?: throw IOException("Empty response body")
@@ -82,7 +82,6 @@ class Networking {
                 .url(url)
                 .get()
                 .addHeader("accept", "application/json")
-                // .addHeader("x-cg-demo-api-key", "CG-rYPvzHBEzVoyiZ7eR7sVmShp")
                 .build()
             val response = client.newCall(request).execute()
             val responseString: String = response.body?.string() ?: throw IOException("Empty response body")
@@ -104,7 +103,6 @@ class Networking {
                 .url(url)
                 .get()
                 .addHeader("accept", "application/json")
-                // .addHeader("x-cg-demo-api-key", "CG-rYPvzHBEzVoyiZ7eR7sVmShp")
                 .build()
             val response = client.newCall(request).execute()
             val responseString: String = response.body?.string() ?: throw IOException("Empty response body")
@@ -125,7 +123,6 @@ class Networking {
                 .url(url)
                 .get()
                 .addHeader("accept", "application/json")
-                .addHeader("x-cg-demo-api-key", "CG-rYPvzHBEzVoyiZ7eR7sVmShp")
                 .build()
 
             val response = client.newCall(request).execute()
